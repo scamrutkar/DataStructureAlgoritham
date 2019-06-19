@@ -1,4 +1,4 @@
-package org.sagar.javacase.datastructure.Tree;
+package com.sagar.javacase.datastructure.Tree;
 
 public class Operations {
 	

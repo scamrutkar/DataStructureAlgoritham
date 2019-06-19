@@ -1,4 +1,4 @@
-package org.sagar.javacase.datastructure.LinkList;
+package com.sagar.javacase.datastructure.LinkList;
 
 public class Pallindrome {
 	
