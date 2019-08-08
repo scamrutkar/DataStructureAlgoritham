@@ -4,21 +4,43 @@ public class KthMaxInBST {
 
 	Node root;
 
-	private void kthMaximumBST(int k) {
+	private static class Count {
 		int count = 0;
+	}
+
+	private void kthMaxBSTrecursiveUtil(Node node, int k, Count c) {
+
+		if (node == null)
+			return;
+
+		kthMaxBSTrecursiveUtil(node.right, k, c);
+		c.count++;
+		if (k == c.count) {
+			System.out.println(String.format("%s Max Element %s", k, node.val));
+			return;
+		}
+
+		kthMaxBSTrecursiveUtil(node.left, k, c);
+
+	}
+
+	private void kthMaxBSTrecursive(int k) {
+		Count c = new Count();
+		kthMaxBSTrecursiveUtil(root, k, c);
+	}
+	
+	private void kthMaxBST(int k) {
+
 		Node pre;
 		Node current = root;
-		while (current != null) {
+		int count = 0;
 
+		while (current != null) {
 			if (current.right == null) {
-				count++;
-				if (count == k) {
-					System.out.println(current.val);
-					break;
-				}
+				if(++count == k)
+					System.out.print(current.val+" ");
 				current = current.left;
 			} else {
-
 				pre = current.right;
 
 				while (pre.left != null && pre.left != current)
@@ -29,29 +51,27 @@ public class KthMaxInBST {
 					current = current.right;
 				} else {
 					pre.left = null;
-					count++;
-					if (count == k) {
-						System.out.println(current.val);
-						break;
-					}
+					if(++count == k)
+						System.out.print(current.val+" ");
 					current = current.left;
 				}
 			}
 		}
+
 	}
 
 	public static void main(String[] args) {
 
 		KthMaxInBST tree = new KthMaxInBST();
-		tree.root = new Node(8);
-		tree.root.left = new Node(4);
-		tree.root.right = new Node(14);
-		tree.root.left.left = new Node(2);
-		tree.root.left.right = new Node(6);
-		tree.root.right.left = new Node(12);
-		tree.root.right.right = new Node(16);
+		tree.root = new Node(6);
+		tree.root.right = new Node(10);
+		tree.root.right.right = new Node(12);
+		tree.root.right.left = new Node(8);
+		tree.root.right.left.right = new Node(9);
+		tree.root.right.right.right = new Node(14);
 
-		tree.kthMaximumBST(2);
+		tree.kthMaxBSTrecursive(3);
+		tree.kthMaxBST(3);
 
 	}
 

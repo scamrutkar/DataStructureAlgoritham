@@ -25,7 +25,7 @@ public class MorrisPostorderTraversal {
 
 		Node p = to;
 		while (true) {
-			System.out.print(p.val+" ");
+			System.out.print(p.val + " ");
 			if (p == from)
 				break;
 			p = p.right;
@@ -35,11 +35,11 @@ public class MorrisPostorderTraversal {
 	}
 
 	void morrisPostorderTraversal() {
-		
+
 		Node dump = new Node(100);
 		dump.left = root;
 		Node current = dump, prev;
-		
+
 		while (current != null) {
 			if (current.left == null) {
 				current = current.right;
@@ -58,22 +58,32 @@ public class MorrisPostorderTraversal {
 				}
 			}
 		}
-		
+
 	}
 
+	public void recursivePostorder(Node root) {
+		if (root == null)
+			return;
+
+		recursivePostorder(root.left);
+		recursivePostorder(root.right);
+		System.out.print(root.val + " ");
+	}
 
 	public static void main(String[] args) {
 
 		MorrisPostorderTraversal tree = new MorrisPostorderTraversal();
-		
-		
+
 		tree.root = new Node(1);
-		tree.root.right= new Node(2);
+		tree.root.right = new Node(2);
 		tree.root.right.right = new Node(5);
-		tree.root.right.left = new Node(3);
-		tree.root.right.left.right = new Node(4);
 		tree.root.right.right.right = new Node(6);
+
+		tree.root.right.right.left = new Node(3);
+		tree.root.right.right.left.right = new Node(4);
+
 		tree.morrisPostorderTraversal();
+		tree.recursivePostorder(tree.root);
 
 	}
 
