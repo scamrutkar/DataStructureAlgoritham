@@ -45,18 +45,19 @@ class GraphNode {
 public class DepthFirstSearch {
 
 	public static void main(String[] args) {
-		GraphNode g = new GraphNode(4);
+		GraphNode g = new GraphNode(6);
 
 		g.addEdge(0, 1);
 		g.addEdge(0, 2);
 		g.addEdge(1, 2);
+		g.addEdge(1, 4);
 		g.addEdge(2, 0);
 		g.addEdge(2, 3);
-		g.addEdge(3, 3);
+		g.addEdge(3, 5);
 
 		System.out.println("Following is Depth First Traversal " + "(starting from vertex 2)");
 
-		g.DFS(2);
+		g.DFS(0);
 
 	}
 
