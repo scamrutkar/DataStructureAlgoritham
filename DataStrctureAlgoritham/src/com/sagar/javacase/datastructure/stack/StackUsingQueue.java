@@ -1,4 +1,4 @@
-package org.sagar.javacase.datastructure.stack;
+package com.sagar.javacase.datastructure.stack;
 
 import java.util.LinkedList;
 

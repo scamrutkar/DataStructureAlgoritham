@@ -1,4 +1,4 @@
-package org.sagar.javacase.datastructure;
+package com.sagar.javacase.datastructure;
 
 public class PerfectSquareRoot {
 

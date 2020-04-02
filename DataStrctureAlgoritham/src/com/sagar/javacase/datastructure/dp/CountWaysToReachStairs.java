@@ -1,4 +1,4 @@
-package org.sagar.javacase.datastructure.dp;
+package com.sagar.javacase.datastructure.dp;
 
 public class CountWaysToReachStairs {
 

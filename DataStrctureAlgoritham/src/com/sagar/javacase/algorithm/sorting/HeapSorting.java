@@ -1,4 +1,4 @@
-package org.sagar.javacase.algorithm.sorting;
+package com.sagar.javacase.algorithm.sorting;
 
 public class HeapSorting {
 
